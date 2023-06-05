@@ -8,7 +8,9 @@ export default function News() {
   //Getting Blogs
   const getAllBlogs = async () => {
     try {
-      const { data } = await axios.get("http://127.0.0.1:5000/blog");
+      const { data } = await axios.get(
+        "https://blog-app-mern-gray.vercel.app/blog"
+      );
       if (data && data.success) {
         setBlogs(data.blogs);
         console.log(data.blogs);
@@ -38,13 +40,13 @@ export default function News() {
                   src={val.image}
                   description={val.description}
                   user={val.user.username}
-                  cat= {val.cat}
+                  cat={val.cat}
                   id={val._id}
                 />
               </div>
             );
           })}
-        </div>
+      </div>
     </div>
   );
 }

@@ -1,13 +1,15 @@
 import Card from "../components/Card";
 import axios from "axios";
 import { useState, useEffect } from "react";
-export default function Sports(){
-    const [blogs, setBlogs] = useState([]);
+export default function Sports() {
+  const [blogs, setBlogs] = useState([]);
 
   //Getting Blogs
   const getAllBlogs = async () => {
     try {
-      const { data } = await axios.get("http://127.0.0.1:5000/blog");
+      const { data } = await axios.get(
+        "https://blog-app-mern-gray.vercel.app/blog"
+      );
       if (data && data.success) {
         setBlogs(data.blogs);
         console.log(data.blogs);
@@ -20,8 +22,8 @@ export default function Sports(){
     getAllBlogs();
   }, []);
 
-    return (
-        <div className="container">
+  return (
+    <div className="container">
       <div className="row m-3">
         <div className="col-12">
           <h3>Sports Blogs</h3>
@@ -37,13 +39,13 @@ export default function Sports(){
                   src={val.image}
                   description={val.description}
                   user={val.user.username}
-                  cat= {val.cat}
+                  cat={val.cat}
                   id={val._id}
                 />
               </div>
             );
           })}
-        </div>
+      </div>
     </div>
-    );
+  );
 }

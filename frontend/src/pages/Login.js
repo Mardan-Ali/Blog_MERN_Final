@@ -22,11 +22,14 @@ export default function Login() {
   const submitHandler = async (e) => {
     e.preventDefault();
     try {
-      const { data } = await axios.post("http://127.0.0.1:5000/user/login", {
-        username: inputs.username,
-        email: inputs.email,
-        password: inputs.password,
-      });
+      const { data } = await axios.post(
+        "https://blog-app-mern-gray.vercel.app/user/login",
+        {
+          username: inputs.username,
+          email: inputs.email,
+          password: inputs.password,
+        }
+      );
       if (data.success) {
         localStorage.setItem("userId", data.user._id);
         dispatch(authActions.login());

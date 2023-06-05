@@ -9,7 +9,7 @@ export default function Card(props) {
   };
   const deleteHandler = async () => {
     const { data } = await axios.delete(
-      `http://127.0.0.1:5000/blog/delete-blog/${id}`
+      `https://blog-app-mern-gray.vercel.app/blog/delete-blog/${id}`
     );
     if (data.success) {
       alert("Blog Deleted");

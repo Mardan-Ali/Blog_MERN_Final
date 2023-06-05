@@ -16,7 +16,7 @@ export default function Edit() {
 
   useEffect(() => {
     axios
-      .get(`http://127.0.0.1:5000/blog/get-blog/${id}`)
+      .get(`https://blog-app-mern-gray.vercel.app/blog/get-blog/${id}`)
       .then((resolve) => {
         console.log(resolve.data.blog);
         setInput(resolve.data.blog);

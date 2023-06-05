@@ -10,7 +10,7 @@ export default function MyBlog() {
     try {
       const id = localStorage.getItem("userId");
       const { data } = await axios.get(
-        `http://127.0.0.1:5000/blog/user-blog/${id}`
+        `https://blog-app-mern-gray.vercel.app/blog/user-blog/${id}`
       );
       if (data.success) {
         setBlogs(data.result);
@@ -30,22 +30,25 @@ export default function MyBlog() {
           <h3>My Blogs</h3>
           <hr />
         </div>
-        { blogs && blogs.length > 0 ? (blogs.map((val) => {
-          return (
-            <div className="col-lg-4 col-md-6 col-sm-12">
-              <Card
-                title={val.title}
-                src={val.image}
-                description={val.description}
-                user={val.user.username}
-                cat={val.cat}
-                id={val._id}
-                isUser={true}
-              />
-            </div>
-          );
-        })) : <h4>No Blog Found</h4>
-        }
+        {blogs && blogs.length > 0 ? (
+          blogs.map((val) => {
+            return (
+              <div className="col-lg-4 col-md-6 col-sm-12">
+                <Card
+                  title={val.title}
+                  src={val.image}
+                  description={val.description}
+                  user={val.user.username}
+                  cat={val.cat}
+                  id={val._id}
+                  isUser={true}
+                />
+              </div>
+            );
+          })
+        ) : (
+          <h4>No Blog Found</h4>
+        )}
       </div>
     </div>
   );

@@ -1,5 +1,3 @@
-export default function Write(){
-    return (
-        <div></div>
-    );
+export default function Write() {
+  return <div></div>;
 }

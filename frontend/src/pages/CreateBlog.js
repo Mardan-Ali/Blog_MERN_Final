@@ -22,7 +22,7 @@ export default function CreateBlog() {
     e.preventDefault();
     try {
       const { data } = await axios.post(
-        "http://127.0.0.1:5000/blog/create-blog",
+        "https://blog-app-mern-gray.vercel.app/blog/create-blog",
         {
           title: inputs.title,
           cat: inputs.cat,
